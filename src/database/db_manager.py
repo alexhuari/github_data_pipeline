@@ -68,8 +68,8 @@ class DatabaseManager:
     def get_most_active_repos(self, days: int = 30, limit: int = 10) -> pd.DataFrame:
         """Get the most active repositories"""
         query= """
-        SELECT name, full_name, stargazers_count, starts_per_day, ai_category
-        html_url,pushed_at
+        SELECT name, stargazers_count, starts_per_day, ai_category
+        html_url, pushed_at
         FROM repositories 
         WHERE pushed_at >= NOW() - INTERVAL :day DAY
         ORDER BY stars_per_day DESC
