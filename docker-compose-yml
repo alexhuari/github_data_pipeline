@@ -1,20 +1,20 @@
-version: 3.8 
+version: '3.8'
 services:
     postgres:
-    image: postgres:13
-    container_name: github_analysis_db
-    enviroment:
-        POSTGRES_USER: ${DB_USER:-potgres}
-        POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
-        POSTGRES_DB: ${DB_NAME:-github_analysis}
-    ports:
-    - "5432:5432"
-    volumes:
-    - pg_data:/var/lib/postgressql/pg_data
+        image: postgres:13
+        container_name: github_analysis_db
+        enviroment:
+            POSTGRES_USER: ${DB_USER:-potgres}
+            POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+            POSTGRES_DB: ${DB_NAME:-github_analysis}
+        ports:
+            - "5432:5432"
+        volumes:
+            - pg_data:/var/lib/postgressql/pg_data
     healthcheck:
         test: ["CMD-SHELL","pg_isready -U postgres"]
         interval: 5s
         timeout: 5s
         retries: 5
-    volumes:
-        pg_data:
+volumes:
+    pg_data:

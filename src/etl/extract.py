@@ -5,7 +5,9 @@ from typing import List, Dict, Any
 from datetime import datetime 
 from tqdm import tqdm 
 from scr.utils.logger import get_logger
-from scr.config import settings 
+from scr.config import settings
+
+logger = get_logger(__name__)
 
 class GitHubExtractor:
     def __init__(self):
