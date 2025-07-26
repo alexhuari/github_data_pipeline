@@ -5,7 +5,7 @@ from sqlalchemy.ext.declarative import declarative_base
 import os 
 from dotenv import load_dotenv
 import logging 
-from typing import Optional, List, Dict, Any
+from typing import Optional
 
 Base = declarative_base()
 

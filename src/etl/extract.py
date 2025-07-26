@@ -1,11 +1,10 @@
 import requests
 import pandas as pd
-import os
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from datetime import datetime 
 from tqdm import tqdm 
-from scr.utils.logger import get_logger
-from scr.config import settings
+from src.utils.logger import get_logger
+from src.config import settings
 
 logger = get_logger(__name__)
 
@@ -60,3 +59,4 @@ class GitHubExtractor:
                 'topic_searched': topic,
                 'extracted_at': datetime.now().isoformat()
             }
+            all_repos.append(repo_data)

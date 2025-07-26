@@ -7,7 +7,7 @@ class Settings:
     #Settings of the database 
     DB_HOST: str = os.getenv("DB_HOST","localhost")
     DB_PORT: str = os.getenv("DB_PORT", "5432")
-    DB_NAME: str = os.getenv("DB_NAME", "github_analysis")
+    DB_NAME: str = os.getenv("DB_NAME", "")
     DB_USER: str = os.getenv("DB_USER", "postgres")
     DB_PASSWORD: str = os.getenv("DB_PASSWORD","")
 
@@ -19,7 +19,7 @@ class Settings:
 
     #Settings of the project
     MAX_REPOS: int = int(os.getenv("MAX_REPOS","500"))
-    TOPICS: List[str] = os.getenv("TOPICS","llm,generative-ai,machine-learning,deep-learning").split(",")
+    TOPICS: List[str] = os.getenv("TOPICS","llm,generative-ai,machine-learning,deep-learning, computer-vision,nlp").split(",")
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
 
     #Settings of reports
@@ -27,7 +27,7 @@ class Settings:
     DAYS_FOR_TREND_ANALYSIS: int = int(os.getenv("DAYS_FOR_TREND_ANALYSIS","30"))
 
     #Thresholds for analysis
-    START_THRESHOLD: int = int(os.getenv("START_THRESHOLD","100"))
+    STAR_THRESHOLD: int = int(os.getenv("STAR_THRESHOLD","100"))
     FORKS_PER_STAR_THRESHOLLD = float = float(os.getenv("FORKS_PER_STAR_THRESHOLD","0.1"))
 
     #Classification of IA categories
