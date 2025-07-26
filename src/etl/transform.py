@@ -61,7 +61,7 @@ class GitHubTransformer:
             # Classify repositories 
             df['ai_category'] = df.apply(self.classify_repo, axis=1)
             
-            # Leve of activities
+            # Level of activities
             bins = [0, 7, 30, 90, 365, np.inf]
             labels = ['daily', 'weekly', 'monthly', 'yearly', 'inactive']
             df['activity_level'] = pd.cut(
@@ -71,7 +71,7 @@ class GitHubTransformer:
                 right=False
             )
             
-            # Normalizar lenguaje
+            # Normalized language 
             df['language'] = df['language'].apply(self.clean_language)
             
             return df
