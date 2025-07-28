@@ -66,9 +66,9 @@ class DatabaseManager:
             self.logger.error(f"Error when execute the query : {e}")
             return pd.DataFrame()
     def get_most_active_repos(self, days: int = 30, limit: int = 10) -> pd.DataFrame:
-        """Get the most active repositories"""
+        """Get the 10 most active repositories"""
         query= """
-        SELECT name, stargazers_count, starts_per_day, ai_category
+        SELECT name, stargazers_count, stars_per_day, ai_category
         html_url, pushed_at
         FROM repositories 
         WHERE pushed_at >= NOW() - INTERVAL :day DAY

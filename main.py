@@ -9,7 +9,7 @@ from src.config import settings
 logger = get_logger(__name__)
 
 def run_etl_pipeline():
-    """Ejecuta todo el pipeline ETL"""
+    """Execute the pipeline"""
     db_manager = DatabaseManager()
     try:
         # Extract

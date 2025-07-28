@@ -71,11 +71,11 @@ class GitHubTransformer:
                 right=False
             )
             
-            # Normalized language 
+            # Normalize language 
             df['language'] = df['language'].apply(self.clean_language)
             
             return df
             
         except Exception as e:
-            logger.error(f"Error en transformación: {e}")
+            logger.error(f"Error during the transformation: {e}")
             raise

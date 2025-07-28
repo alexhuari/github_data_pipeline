@@ -10,10 +10,10 @@ class GitHubReporter:
         self.db = db_manager
     
     def generate_trend_report(self) -> Dict[str, pd.DataFrame]:
-        """Genera reporte de tendencias"""
+        """Generated  reports about the trends in github repositories focus on AI"""
         reports = {}
         
-        # 1. Lenguajes más populares
+        # 1. Most popular languages
         reports['top_languages'] = self.db.execute_query("""
             SELECT language, COUNT(*) as repo_count, 
                    AVG(stars_per_day) as avg_growth
@@ -24,7 +24,7 @@ class GitHubReporter:
             LIMIT 10
         """)
         
-        # 2. Categorías con más crecimiento
+        # 2. Categories with much growth
         reports['ai_categories'] = self.db.execute_query("""
             SELECT ai_category, COUNT(*) as repo_count,
                    AVG(stars_per_day) as avg_growth,
@@ -34,14 +34,14 @@ class GitHubReporter:
             ORDER BY avg_growth DESC
         """)
         
-        # 3. Repositorios más activos
+        # 3. More active repositories 
         reports['most_active'] = self.db.get_most_active_repos(days=30, limit=10)
         
-        logger.info("Reportes generados exitosamente")
+        logger.info("All reports were generated correctly")
         return reports
     
     def save_reports_to_csv(self, reports: Dict[str, pd.DataFrame], output_dir: str = "reports"):
-        """Guarda los reportes como archivos CSV"""
+        """Saved reposts in CSV documents"""
         import os
         os.makedirs(output_dir, exist_ok=True)
         
